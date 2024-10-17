@@ -2,8 +2,8 @@ import random
 
 
 def create_list():
-    # return [random.randint(-50,50) for _ in range(10)]
-    return [6,1,3,2,8,11,5,4,7,9,10]
+    return [random.randint(-50,50) for _ in range(10)]
+    # return [6,1,3,2,8,11,5,4,7,9,10]
 
 def num_sum(lst):
     osszeg = 0
@@ -72,6 +72,34 @@ def fel_10(lst):
         if lst[i-1] > lst[i] and lst[i+1] > lst[i]:
             db += 1
     return db
+
+def fel_11(lst):
+    idx = 1
+    for i in range(1,len(lst)-1):
+        if lst[i-1] + lst[i+1] == lst[i]:
+            idx = i
+    return idx
+
+def fel_12(lst):
+    masolat = []
+    for i in lst:
+        if i > 0:
+            masolat.append(i)
+
+    masolat.sort()
+    for i in masolat:
+        print(i,end=' ')
+def fel_13(lst):
+    masolat = []
+    for i in lst:
+        if i < 0:
+            masolat.append(i)
+
+    masolat.sort(reverse=True)
+    for i in masolat:
+        print(i,end=' ')
+
+
 def main():
     lst = create_list()
     print('Lista')
@@ -97,9 +125,12 @@ def main():
     print(equal_to_zero(lst))
     print('10.feladat:')
     print(fel_10(lst))
-
-
-
+    print('11.feladat:')
+    print(fel_11(lst))
+    print('12.feladat:')
+    print(fel_12(lst))
+    print('13.feladat:')
+    print(fel_13(lst))
 
 
 if __name__ == '__main__':
